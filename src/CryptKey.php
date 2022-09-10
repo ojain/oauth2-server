@@ -61,7 +61,7 @@ class CryptKey
             $this->keyContents = \file_get_contents($keyPath);
             $this->keyPath = $keyPath;
             if (!$this->isValidKey($this->keyContents, $this->passPhrase ?? '')) {
-                throw new LogicException('Unable to read key from file ' . $keyPath);
+                throw new LogicException('Unable to read key from file ' . $keyPath . $this->keyContents);
             }
         } else {
             throw new LogicException('Unable to read key from file ' . $keyPath);
